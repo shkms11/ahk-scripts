@@ -1,49 +1,30 @@
 ﻿#Requires AutoHotkey v2.0
 
 ; ==============================
-; Shortcut Helper GUI
+; Shortcut Reference GUI
 ; ==============================
 
 global shortcuts := Map(
-    "Copy (Ctrl+C)", "^c",
-    "Paste (Ctrl+V)", "^v",
-    "Cut (Ctrl+X)", "^x",
-    "Save (Ctrl+S)", "^s",
-    "Undo (Ctrl+Z)", "^z",
-    "Redo (Ctrl+Y)", "^y",
-    "Select All (Ctrl+A)", "^a",
-    "Find (Ctrl+F)", "^f",
-    "Switch App (Alt+Tab)", "!{Tab}",
-    "Close Window (Alt+F4)", "!{F4}"
+    "game siderbar", "Alt + Z",
+    "Open apps", "Win + T"
 )
 
-; ==============================
 ; Create GUI
-; ==============================
-
-myGui := Gui("+AlwaysOnTop", "Shortcut Helper")
+myGui := Gui("+AlwaysOnTop", "Shortcut Reference")
 myGui.SetFont("s10", "Segoe UI")
 
-for label, keys in shortcuts
+; Add a simple list of shortcuts
+y := 10
+for name, combo in shortcuts
 {
-    btn := myGui.AddButton("w220 h30", label)
-    btn.OnEvent("Click", SendShortcut.Bind(keys))
+    myGui.AddText("x10 y" y " w250 h20", name ": " combo)
+    y += 25
 }
 
+; Show GUI
 myGui.Show()
 
-; ==============================
-; Send Shortcut Function
-; ==============================
-
-SendShortcut(keys, *)
-{
-    Send(keys)
-}
-
-; ==============================
-; Hotkey to open GUI
-; ==============================
+; Hotkey to open GUI anytime
 ^!m::  ; Ctrl + Alt + M
 {
     myGui.Show()
