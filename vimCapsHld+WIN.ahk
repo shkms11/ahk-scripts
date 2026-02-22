@@ -1,40 +1,56 @@
 ﻿#Requires AutoHotkey v2.0
 
 ; =========================================
-; Ensure CapsLock starts off
+; Ensure CapsLock starts OFF
 SetCapsLockState("Off")
 
 ; =========================================
-; VIM-MODE + scrolling active while holding CapsLock + another key
+; VIM MODE (active only while holding CapsLock)
 #HotIf GetKeyState("CapsLock", "P")
 
-; Arrow keys for cursor movement
+; Cursor movement
 h::Send "{Left}"
 l::Send "{Right}"
 
-; Scroll with j/k
-j::Send "{WheelDown}"   ; scroll down
-k::Send "{WheelUp}"     ; scroll up
+; Up / Down with optional scrolling
+j::
+{
+    if GetKeyState("Ctrl", "P")
+        Send "{WheelDown}"   ; Scroll down
+    else
+        Send "{Down}"        ; Arrow down
+}
+
+k::
+{
+    if GetKeyState("Ctrl", "P")
+        Send "{WheelUp}"     ; Scroll up
+    else
+        Send "{Up}"          ; Arrow up
+}
 
 ; Word movement
-b::Send "^{Left}"       ; back word
-w::Send "^{Right}"      ; forward word
+b::Send "^{Left}"    ; Back one word
+w::Send "^{Right}"   ; Forward one word
 
 ; Start / End of line
 0::Send "{Home}"
 $::Send "{End}"
 
-#HotIf  ; End Vim-mode
+#HotIf  ; End Vim mode
+
 
 ; =========================================
-; Block CapsLock alone → does nothing
+; Block CapsLock alone (does nothing)
 *CapsLock::return
 
+
 ; =========================================
-; Win + CapsLock → toggle system CapsLock
-#CapsLock::  ; Win + CapsLock
+; Win + CapsLock → Toggle real CapsLock
+#CapsLock::
 {
-    current := GetKeyState("CapsLock", "T")  ; True = On
-    SetCapsLockState(current ? "Off" : "On") ; Toggle
-    return
+    current := GetKeyState("CapsLock", "T")
+    SetCapsLockState(current ? "Off" : "On")
 }
+
+#NoTrayIcon

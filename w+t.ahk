@@ -18,3 +18,5 @@ OpenOrActivate(winTitle, runPath)
         Run runPath
     }
 }
+
+#NoTrayIcon
