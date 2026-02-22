@@ -37,7 +37,7 @@ summary .= "✅ Scripts run successfully: " scriptsRun.Length "`n"
 if (scriptsRun.Length > 0) {
     summary .= "List:`n"
     Loop scriptsRun.Length {
-        summary .= "- " scriptsRun[A_Index] "`n"
+        summary .= "— " scriptsRun[A_Index] "`n"
     }
 }
 
@@ -45,7 +45,7 @@ summary .= "`n❌ Errors encountered: " errors.Length "`n"
 if (errors.Length > 0) {
     summary .= "List:`n"
     Loop errors.Length {
-        summary .= "- " errors[A_Index] "`n"
+        summary .= "— " errors[A_Index] "`n"
     }
 }
 
