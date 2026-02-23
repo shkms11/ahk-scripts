@@ -5,18 +5,19 @@
 ; ==============================
 
 global shortcuts := Map(
-    "Game Side Bar", "Alt + Z",
-    "Open Apps", "Win + T",
-    "Task Manager", "Ctrl + Shift + Esc",
-    "Separator", "—",
-    "Mouse Left + Backward", "Mini All Window",
-    "Mouse L + Forward", "SS",
-    "Mouse R + Scroll", "Vol +/-",
-    "Vim Caps Hold + Win", "Vim Arrow & Navigation"
+    "nvdia overlay", "alt + z",
+    "game full screen", "alt + enter",
+    "open session", "win + t",
+    "task manager", "ctrl + shift + esc",
+    "-- -emd -x ", "—",
+    "mouse l + backward", "mini all win",
+    "mouse l + forward", "ss",
+    "mouse r + scroll", "vol +/-",
+    "caps hold", "activate global vim layer"
 )
 
 ; Create GUI
-myGui := Gui("+AlwaysOnTop", "Shortcut Reference")
+myGui := Gui("+AlwaysOnTop", "i rember💀💀")
 myGui.SetFont("s10", "Segoe UI")
 
 ; Add a neat table of shortcuts
