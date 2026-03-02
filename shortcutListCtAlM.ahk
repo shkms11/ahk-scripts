@@ -14,7 +14,8 @@ global shortcuts := Map(
     "mouse l + forward", "ss",
     "mouse r + scroll", "vol +/-",
     "caps hold", "activate global vim layer",
-    "new/change tab pws", "ctrl + shift + T/n"
+    "new tab pws", "ctrl + shift + T",
+    "change tab pws", "ctrl + alt + n"
 )
 
 ; Create GUI
