@@ -5,6 +5,8 @@
     OpenOrActivate("ahk_exe WindowsTerminal.exe", "wt.exe")
     OpenOrActivate("ahk_exe Notion.exe", "F:\portal__\Notion.lnk")
     OpenOrActivate("ahk_exe vivaldi.exe", "F:\portal__\vivaldi - Shortcut.lnk")
+    OpenOrActivate("ahk_exe vivaldi.exe", "F:\portal__\notion calendar.lnk")
+
 }
 
 OpenOrActivate(winTitle, runPath)
